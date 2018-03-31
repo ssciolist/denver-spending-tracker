@@ -3,5 +3,5 @@ class Transaction < ActiveRecord::Base
             :payment_date,
             :description,
             :amount,
-  presence: true
+            presence: true
 end
