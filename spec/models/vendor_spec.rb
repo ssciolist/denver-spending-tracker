@@ -8,17 +8,17 @@ describe Vendor, type: :model do
     end
 
     it 'is invalid without a state' do
-      vendor = Vendor.new(name: "Benny Blancos")
+      vendor = Vendor.new(name: 'Benny Blancos')
       expect(vendor).to be_invalid
     end
 
     it 'is invalid without a name' do
-      vendor = Vendor.new(state: "CO")
+      vendor = Vendor.new(state: 'CO')
       expect(vendor).to be_invalid
     end
 
     it 'is valid with a name and state' do
-      vendor = Vendor.new(name: "Benny Blancos", state: "CO")
+      vendor = Vendor.new(name: 'Benny Blancos', state: 'CO')
       expect(vendor).to be_valid
     end
   end

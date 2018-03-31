@@ -8,7 +8,7 @@ describe Program, type: :model do
     end
 
     it 'is valid with a name' do
-      program = Program.new(name: "Fire Department")
+      program = Program.new(name: 'Fire Department')
       expect(program).to be_valid
     end
   end
