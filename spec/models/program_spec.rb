@@ -7,9 +7,9 @@ describe Program, type: :model do
       expect(program).to be_invalid
     end
 
-    it 'is invalid without a name' do
+    it 'is valid with a name' do
       program = Program.new(name: "Fire Department")
-      expect(program).to be_invalid
+      expect(program).to be_valid
     end
   end
 
