@@ -16,6 +16,11 @@ describe Vendor, type: :model do
       vendor = Vendor.new(state: "CO")
       expect(vendor).to be_invalid
     end
+
+    it 'is valid with a name and state' do
+      vendor = Vendor.new(name: "Benny Blancos", state: "CO")
+      expect(vendor).to be_valid
+    end
   end
 
   describe 'Relationships' do
