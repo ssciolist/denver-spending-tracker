@@ -1,9 +1,11 @@
 require 'rails_helper'
 
-describe 'User visits /vendor/:id' do
-  scenario 'They see that vendor\'s information and all gov purchases' do
-    vendor = Vendor.new(name: 'Benny Blancos', state: 'CO')
+describe 'User visits /program/:id' do
+  scenario 'They see that program\'s information and all its purchases' do
     program = Program.new(name: 'Denver Fire Department')
+    vendor = Vendor.new(name: 'Benny Blancos', state: 'CO')
+    vendor2 = Vendor.new(name: 'Pizza Hut', state: 'CO')
+    vendor3 = Vendor.new(name: 'Dominos', state: 'CO')
     purchase = Purchase.new(transaction_date: '4/16/2017',
                             payment_date: '4/18/2018',
                             description: 'Calzones',
@@ -17,27 +19,26 @@ describe 'User visits /vendor/:id' do
                              description: 'Pepperoni pizza',
                              amount: 50.1)
     ProgramVendorPurchase.create!(program: program, vendor: vendor, purchase: purchase)
-    ProgramVendorPurchase.create!(program: program, vendor: vendor, purchase: purchase2)
-    ProgramVendorPurchase.create!(program: program, vendor: vendor, purchase: purchase3)
+    ProgramVendorPurchase.create!(program: program, vendor: vendor2, purchase: purchase2)
+    ProgramVendorPurchase.create!(program: program, vendor: vendor3, purchase: purchase3)
 
-    visit vendor_path(vendor)
+    visit program_path(program)
 
-    expect(page).to have_content(vendor.name)
-    expect(page).to have_content(vendor.state)
+    expect(page).to have_content(program.name)
     expect(page).to have_content(purchase.description)
     expect(page).to have_content(purchase.amount)
     expect(page).to have_content(purchase.transaction_date)
     expect(page).to have_content(purchase.payment_date)
-    expect(page).to have_content(purchase.programs.first.name)
+    expect(page).to have_content(purchase.vendors.first.name)
     expect(page).to have_content(purchase2.description)
     expect(page).to have_content(purchase2.amount)
     expect(page).to have_content(purchase2.transaction_date)
     expect(page).to have_content(purchase2.payment_date)
-    expect(page).to have_content(purchase2.programs.first.name)
+    expect(page).to have_content(purchase2.vendors.first.name)
     expect(page).to have_content(purchase3.description)
     expect(page).to have_content(purchase3.amount)
     expect(page).to have_content(purchase3.transaction_date)
     expect(page).to have_content(purchase3.payment_date)
-    expect(page).to have_content(purchase3.programs.first.name)
+    expect(page).to have_content(purchase3.vendors.first.name)
   end
 end
