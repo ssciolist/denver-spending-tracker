@@ -21,23 +21,23 @@ describe 'User visits /vendor/:id' do
     program_vendor_purchases = ProgramVendorPurchase.create!(program: program, vendor: vendor, purchase: purchase_3)
 
     visit vendor_path(vendor)
-
+save_and_open_page
     expect(page).to have_content(vendor.name)
     expect(page).to have_content(vendor.state)
     expect(page).to have_content(purchase.description)
     expect(page).to have_content(purchase.amount)
     expect(page).to have_content(purchase.transaction_date)
     expect(page).to have_content(purchase.payment_date)
-    expect(page).to have_content(purchase.vendors)
+    expect(page).to have_content(purchase.programs.first.name)
     expect(page).to have_content(purchase_2.description)
     expect(page).to have_content(purchase_2.amount)
     expect(page).to have_content(purchase_2.transaction_date)
     expect(page).to have_content(purchase_2.payment_date)
-    expect(page).to have_content(purchase_2.vendors)
+    expect(page).to have_content(purchase_2.programs.first.name)
     expect(page).to have_content(purchase_3.description)
     expect(page).to have_content(purchase_3.amount)
     expect(page).to have_content(purchase_3.transaction_date)
     expect(page).to have_content(purchase_3.payment_date)
-    expect(page).to have_content(purchase_3.vendors)
+    expect(page).to have_content(purchase_3.programs.first.name)
   end
 end

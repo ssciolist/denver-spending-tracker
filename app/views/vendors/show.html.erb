@@ -1,0 +1,18 @@
+<h1><%= @vendor.name %>, operating in <%= @vendor.state %></h1>
+
+<table>
+  <th>Program</th>
+  <th>Amount</th>
+  <th>Description</th>
+  <th>Transaction Date</th>
+  <th>Payment Date</th>
+  <% @vendor.purchases.each do |purchase| %>
+    <tr>
+      <td><%= purchase.programs.first.name %></td>
+      <td><%= purchase.amount %></td>
+      <td><%= purchase.description %></td>
+      <td><%= purchase.transaction_date %></td>
+      <td><%= purchase.payment_date %></td>
+    </tr>
+  <% end %>
+</table>
