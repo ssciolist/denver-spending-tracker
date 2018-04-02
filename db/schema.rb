@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180331223431) do
+ActiveRecord::Schema.define(version: 20180402201810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "program_vendor_purchases", force: :cascade do |t|
+    t.bigint "vendor_id"
+    t.bigint "program_id"
+    t.bigint "purchase_id"
+    t.index ["program_id"], name: "index_program_vendor_purchases_on_program_id"
+    t.index ["purchase_id"], name: "index_program_vendor_purchases_on_purchase_id"
+    t.index ["vendor_id"], name: "index_program_vendor_purchases_on_vendor_id"
+  end
 
   create_table "programs", force: :cascade do |t|
     t.string "name"
@@ -21,7 +30,7 @@ ActiveRecord::Schema.define(version: 20180331223431) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "transactions", force: :cascade do |t|
+  create_table "purchases", force: :cascade do |t|
     t.string "transaction_date"
     t.string "payment_date"
     t.string "description"
@@ -37,4 +46,7 @@ ActiveRecord::Schema.define(version: 20180331223431) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "program_vendor_purchases", "programs"
+  add_foreign_key "program_vendor_purchases", "purchases"
+  add_foreign_key "program_vendor_purchases", "vendors"
 end
