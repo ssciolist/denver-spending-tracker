@@ -24,7 +24,7 @@ describe Vendor, type: :model do
   end
 
   describe 'Relationships' do
-    skip { should have_many(:programs) }
-    skip { should have_many(:transactions) }
+    it { should have_many(:programs) }
+    it { should have_many(:purchases) }
   end
 end
