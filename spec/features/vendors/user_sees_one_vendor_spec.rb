@@ -21,7 +21,7 @@ describe 'User visits /vendor/:id' do
     program_vendor_purchases = ProgramVendorPurchase.create!(program: program, vendor: vendor, purchase: purchase_3)
 
     visit vendor_path(vendor)
-save_and_open_page
+
     expect(page).to have_content(vendor.name)
     expect(page).to have_content(vendor.state)
     expect(page).to have_content(purchase.description)
