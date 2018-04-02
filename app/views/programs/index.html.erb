@@ -1,0 +1,7 @@
+<h1>All City Programs</h1>
+
+<ul>
+<% @programs.each do |program| %>
+  <li><%= link_to program.name, program_path(program) %></li>
+<% end %>
+</ul>
