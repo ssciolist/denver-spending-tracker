@@ -24,10 +24,11 @@ describe 'logged in user visits /program/:id/' do
     ProgramVendorPurchase.create!(program: program, vendor: vendor3, purchase: purchase3)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    
+
     visit program_path(program)
-    within 'tr#first_purchase' do
-      click_on 'flag'
+
+    within "td#program_purchase_#{purchase.id}" do
+      click_on 'Flag'
     end
 
     visit user_path(user)
@@ -39,6 +40,6 @@ describe 'logged in user visits /program/:id/' do
     expect(page).to have_content(purchase.transaction_date)
     expect(page).to have_content(purchase.payment_date)
     expect(page).to_not have_content(purchase2.description)
-    expect(page).to have_content(purchase3.description)
+    expect(page).to_not have_content(purchase3.description)
   end
 end

@@ -7,7 +7,7 @@
   <th>Payment Date</th>
   <% @program.purchases.each do |purchase| %>
   <tr>
-    <td><%= link_to 'Flag', purchase_flags_path(purchase), method: "post" %></td>
+    <td id="program_purchase_<%= purchase.id %>"><%= link_to 'Flag', purchase_flags_path(purchase), method: "post" %></td>
     <td><%= purchase.vendors.first.name %></td>
     <td><%= purchase.amount %></td>
     <td><%= purchase.description %></td>
