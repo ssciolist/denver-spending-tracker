@@ -6,7 +6,7 @@
   <th>Transaction Date</th>
   <th>Payment Date</th>
   <% @vendor.purchases.each do |purchase| %>
-    <tr>
+    <tr id="vendor_purchase_<%= purchase.id %>">
       <td><%= link_to 'Flag', purchase_flags_path(purchase), method: "post" %></td>
       <td><%= purchase.programs.first.name %></td>
       <td><%= purchase.amount %></td>
