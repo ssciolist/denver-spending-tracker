@@ -32,4 +32,16 @@ describe 'User visits purchase index page' do
       expect(page).to have_content(purchase3.vendors.first.name)
     end
   end
+
+  context 'as a default user' do
+    it 'does not allow default user to see admin categories index' do
+      user = User.create(username: 'Megan', password: 'OliolioO')
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      visit admin_purchases_path
+
+      expect(page).to_not have_content('All transactions')
+      expect(page).to have_content('The page you were looking for doesn\'t exist')
+    end
+  end
 end
