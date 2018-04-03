@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <% if current_user.nil? %>
+      <%= render partial: 'layouts/welcome' %>
+    <% else %>
+      <%= render partial: 'layouts/loggedin' %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
