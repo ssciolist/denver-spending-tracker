@@ -9,5 +9,9 @@ Rails.application.routes.draw do
   resources :vendors, only: [:show, :index]
   resources :programs, only: [:show, :index]
 
+  resources :purchases, only: [:index] do
+    resources :flags
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

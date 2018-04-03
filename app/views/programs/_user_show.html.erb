@@ -1,5 +1,3 @@
-<h1>Purchases by <%= @program.name %></h1>
-
 <table>
   <th>Flag</th>
   <th>Vendor</th>
@@ -9,7 +7,7 @@
   <th>Payment Date</th>
   <% @program.purchases.each do |purchase| %>
   <tr>
-    <td><%= link_to 'Flag', transaction_flags_path(), method: "post" %></td>
+    <td><%= link_to 'Flag', purchase_flags_path(purchase), method: "post" %></td>
     <td><%= purchase.vendors.first.name %></td>
     <td><%= purchase.amount %></td>
     <td><%= purchase.description %></td>
