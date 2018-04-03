@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180403013408) do
+ActiveRecord::Schema.define(version: 20180403180157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "flags", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "purchase_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["purchase_id"], name: "index_flags_on_purchase_id"
+    t.index ["user_id"], name: "index_flags_on_user_id"
+  end
 
   create_table "program_vendor_purchases", force: :cascade do |t|
     t.bigint "vendor_id"
@@ -51,6 +60,8 @@ ActiveRecord::Schema.define(version: 20180403013408) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "flags", "purchases"
+  add_foreign_key "flags", "users"
   add_foreign_key "program_vendor_purchases", "programs"
   add_foreign_key "program_vendor_purchases", "purchases"
   add_foreign_key "program_vendor_purchases", "vendors"
