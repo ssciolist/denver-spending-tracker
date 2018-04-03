@@ -1,0 +1,18 @@
+<h1>Purchases by <%= @program.name %></h1>
+
+<table>
+  <th>Vendor</th>
+  <th>Amount</th>
+  <th>Description</th>
+  <th>Transaction Date</th>
+  <th>Payment Date</th>
+  <% @program.purchases.each do |purchase| %>
+  <tr>
+    <td><%= purchase.vendors.first.name %></td>
+    <td><%= purchase.amount %></td>
+    <td><%= purchase.description %></td>
+    <td><%= purchase.transaction_date %></td>
+    <td><%= purchase.payment_date %></td>
+  </tr>
+  <% end %>
+</table>
