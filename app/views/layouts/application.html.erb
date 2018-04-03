@@ -9,9 +9,11 @@
   </head>
 
   <body>
-    <header>
-      <p>Want to track government spending? <%= link_to 'Log in', login_path %> or <%= link_to 'sign up', new_user_path %> in seconds.</p>
-    </header>
+    <% if current_user.nil? %>
+      <%= render partial: 'layouts/welcome' %>
+    <% else %>
+      <%= render partial: 'layouts/loggedin' %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
