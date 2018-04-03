@@ -10,7 +10,7 @@
 
   <body>
     <header>
-      <p>Want to track government spending? Log in or <%= link_to 'sign up', new_user_path %> in seconds.</p>
+      <p>Want to track government spending? <%= link_to 'Log in', login_path %> or <%= link_to 'sign up', new_user_path %> in seconds.</p>
     </header>
     <%= yield %>
   </body>
