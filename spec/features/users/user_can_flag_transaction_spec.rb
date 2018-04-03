@@ -40,6 +40,6 @@ describe 'logged in user visits /program/:id/' do
     expect(page).to have_content(purchase.transaction_date)
     expect(page).to have_content(purchase.payment_date)
     expect(page).to_not have_content(purchase2.description)
-    expect(page).to have_content(purchase3.description)
+    expect(page).to_not have_content(purchase3.description)
   end
 end
