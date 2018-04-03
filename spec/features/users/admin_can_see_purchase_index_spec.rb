@@ -26,7 +26,7 @@ describe 'User visits purchase index page' do
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
-      visit admin_categories_path
+      visit admin_purchases_path
       expect(page).to have_content(purchase.vendors.first.name)
       expect(page).to have_content(purchase2.vendors.first.name)
       expect(page).to have_content(purchase3.vendors.first.name)
