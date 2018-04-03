@@ -3,12 +3,14 @@
 <h3>Here's a list of the purchases that you wanted to know more about:</h3>
 
 <table>
+  <tr>
   <th>Program</th>
   <th>Vendor</th>
   <th>Amount</th>
   <th>Description</th>
   <th>Transaction Date</th>
   <th>Payment Date</th>
+  </tr>
   <% current_user.flags.each do |flag| %>
     <tr>
       <td><%= Purchase.find(flag.purchase_id).programs.first.name %></td>
