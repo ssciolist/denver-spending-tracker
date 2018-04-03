@@ -26,8 +26,9 @@ describe 'logged in user visits /program/:id/' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit program_path(program)
-    within 'tr#first_purchase' do
-      click_on 'flag'
+
+    within "td#program_purchase_#{purchase.id}" do
+      click_on 'Flag'
     end
 
     visit user_path(user)
