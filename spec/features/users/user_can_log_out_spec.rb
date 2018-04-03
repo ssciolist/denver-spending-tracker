@@ -15,6 +15,7 @@ describe 'User visits their account' do
     click_on 'Log out'
 
     expect(current_path).to eq(root_path)
+
     expect(page).to_not have_content('Marglargbot')
   end
 end
