@@ -24,7 +24,7 @@ describe 'logged in user visits /program/:id/' do
     ProgramVendorPurchase.create!(program: program, vendor: vendor3, purchase: purchase3)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    
+
     visit program_path(program)
     within 'tr#first_purchase' do
       click_on 'flag'
