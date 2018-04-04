@@ -31,15 +31,7 @@ describe 'logged in user visits /program/:id/' do
       click_on 'Flag'
     end
 
-    visit user_path(user)
+    expect(current_path).to eq(program_path(program))
 
-    expect(page).to have_content(purchase.programs.first.name)
-    expect(page).to have_content(purchase.vendors.first.name)
-    expect(page).to have_content(purchase.description)
-    expect(page).to have_content(purchase.amount)
-    expect(page).to have_content(purchase.transaction_date)
-    expect(page).to have_content(purchase.payment_date)
-    expect(page).to_not have_content(purchase2.description)
-    expect(page).to_not have_content(purchase3.description)
   end
 end

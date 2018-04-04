@@ -14,10 +14,10 @@
   <%= f.fields_for :program_vendor_purchases do |ff| %>
     <div class="">
       <%= ff.label :program %>
-      <%= ff.collection_select(:program, Program.all, :id, :name) %>
+      <%= ff.collection_select(:program, Program.all, :itself, :name) %>
 
       <%= ff.label :vendor %>
-      <%= ff.collection_select(:vendor, Vendor.all, :id, :name) %>
+      <%= ff.collection_select(:vendor, Vendor.all, :itself, :name) %>
     </div>
   <% end %>
 
