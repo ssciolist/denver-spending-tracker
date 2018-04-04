@@ -34,7 +34,7 @@ describe 'User visits purchase index page' do
   end
 
   context 'as a default user' do
-    it 'does not allow default user to see admin categories index' do
+    it 'does not allow default user to see admin purchases index' do
       user = User.create(username: 'Megan', password: 'OliolioO')
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
