@@ -4,6 +4,8 @@ describe 'User visits new purchase page' do
   context 'as an admin' do
     it 'allows admin to add a purchase' do
       admin = User.create!(username: 'Admin', password: 'pass', role: 1)
+      program = Program.create!(name: 'Denver Police Department')
+      vendor = Vendor.create!(name: 'Nintendo', state: 'CO')
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
       visit new_admin_purchase_path
@@ -12,10 +14,10 @@ describe 'User visits new purchase page' do
       fill_in 'purchase[payment_date]', with: '12/15/2016'
       fill_in 'purchase[amount]', with: '50'
       fill_in 'purchase[description]', with: 'A cool toy'
-      select 'Denver Police Department', from: 'purchase[program]'
-      select 'Nintendo', from: 'purchase[vendor]'
+      select 'Denver Police Department', from: 'purchase[program_vendor_purchases_attributes][0][program]'
+      select 'Nintendo', from: 'purchase[program_vendor_purchases_attributes][0][vendor]'
 
-      click_button 'Create new purchase'
+      click_button 'Create Purchase'
 
       purchase = Purchase.last
 

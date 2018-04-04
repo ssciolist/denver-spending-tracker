@@ -1,0 +1,25 @@
+<%= form_for @purchase do |f| %>
+  <%= f.label :transaction_date %>
+  <%= f.text_field :transaction_date %>
+
+  <%= f.label :payment_date %>
+  <%= f.text_field :payment_date %>
+
+  <%= f.label :amount %>
+  <%= f.number_field :amount, class: :text_field, step: :any %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.fields_for :program_vendor_purchases do |ff| %>
+    <div class="">
+      <%= ff.label :program %>
+      <%= ff.collection_select(:program, Program.all, :id, :name) %>
+
+      <%= ff.label :vendor %>
+      <%= ff.collection_select(:vendor, Vendor.all, :id, :name) %>
+    </div>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>

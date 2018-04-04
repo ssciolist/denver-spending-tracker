@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :vendors, only: [:show, :index]
   resources :programs, only: [:show, :index]
 
-  resources :purchases, only: [:index] do
+  resources :purchases, only: [:index, :create, :update] do
     resources :flags
   end
 
