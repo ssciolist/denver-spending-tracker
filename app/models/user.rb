@@ -4,7 +4,7 @@ class User < ApplicationRecord
   validates_presence_of :username
   validates_uniqueness_of :username
 
-  has_many :flags
+  has_many :flags, dependent: :destroy
   has_many :purchases, through: :flags
 
   enum role: %w(user admin)

@@ -3,7 +3,6 @@ class PurchasesController < ApplicationController
   def create
     @purchase = Purchase.create!(purchase_params)
     @purchase.program_vendor_purchases.first
-    require 'pry'; binding.pry
     if @purchase.save
       redirect_to admin_purchases_path
     else
