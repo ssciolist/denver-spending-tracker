@@ -23,7 +23,6 @@ class Admin::PurchasesController < Admin::BaseController
     params.require(:purchase).permit(:transaction_date,
                                      :payment_date,
                                      :description,
-                                     :amount,
-                                     program_vendor_purchases_attributes: [:program, :vendor])
+                                     :amount)
   end
 end
