@@ -1,5 +1,12 @@
 <h1>Purchases by <%= @program.name %></h1>
 
+<div class="">
+  <b>Most expensive purchase:</b>
+  <%= @program.most_expensive_purchase.amount %>
+  on <%= @program.most_expensive_purchase.description %>
+  from <%= @program.most_expensive_purchase.show_vendor.name %>
+</div>
+
 <% if current_user.nil? %>
   <%= render partial: 'programs/visitor_show' %>
 <% else %>
