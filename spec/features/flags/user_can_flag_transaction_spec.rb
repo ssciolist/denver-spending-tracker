@@ -31,7 +31,7 @@ describe 'logged in user visits /program/:id/' do
       click_on 'Flag'
     end
 
-    expect(current_path).to eq(program_path(program))
+    expect(current_path).to eq(user_path(user))
 
   end
 end

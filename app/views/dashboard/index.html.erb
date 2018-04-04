@@ -1,1 +1,27 @@
+<h1>Here's how the Denver Government spent its money in 2017</h1>
 
+<table>
+  <tr>
+    <th>Program</th>
+    <th>Money Spent</th>
+  </tr>
+  <% @programs.each do |program| %>
+    <tr>
+    <td><%= link_to program.name, program_path(program.id) %></td>
+    <td><%= program.total_spent  %></td>
+    </tr>
+  <% end %>
+</table>
+
+<table>
+  <tr>
+    <th>Vendor</th>
+    <th>What Denver paid to them</th>
+  </tr>
+  <% @vendors.each do |vendor| %>
+    <tr>
+    <td><%= link_to vendor.name, vendor_path(vendor.id) %></td>
+    <td><%= vendor.total_earned  %></td>
+    </tr>
+  <% end %>
+</table>

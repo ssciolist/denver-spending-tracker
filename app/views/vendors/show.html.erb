@@ -1,5 +1,12 @@
 <h1><%= @vendor.name %>, operating in <%= @vendor.state %></h1>
 
+<div class="">
+  <b>Biggest government purchase:</b>
+  <%= @vendor.most_expensive_purchase.amount %>
+  on <%= @vendor.most_expensive_purchase.description %>
+  from <%= @vendor.most_expensive_purchase.show_program.name %>
+</div>
+
 <table>
   <tr>
   <th>Program</th>
