@@ -8,7 +8,7 @@
   <% @vendor.purchases.each do |purchase| %>
     <tr id="vendor_purchase_<%= purchase.id %>">
       <td><%= link_to 'Flag', purchase_flags_path(purchase), method: "post" %></td>
-      <td><%= purchase.programs.first.name %></td>
+      <td><%= purchase.show_program.name %></td>
       <td><%= purchase.amount %></td>
       <td><%= purchase.description %></td>
       <td><%= purchase.transaction_date %></td>

@@ -6,19 +6,16 @@
   <tr>
   <th>Program</th>
   <th>Vendor</th>
-  <th>Amount</th>
-  <th>Description</th>
-  <th>Transaction Date</th>
-  <th>Payment Date</th>
+  <%= render partial: 'layouts/table_headers' %>
   </tr>
-  <% current_user.flags.each do |flag| %>
+  <% current_user.purchases.each do |purchase| %>
     <tr>
-      <td><%= Purchase.find(flag.purchase_id).programs.first.name %></td>
-      <td><%= Purchase.find(flag.purchase_id).vendors.first.name %></td>
-      <td><%= Purchase.find(flag.purchase_id).amount %></td>
-      <td><%= Purchase.find(flag.purchase_id).description %></td>
-      <td><%= Purchase.find(flag.purchase_id).transaction_date %></td>
-      <td><%= Purchase.find(flag.purchase_id).payment_date %></td>
+      <td><%= purchase.show_program.name %></td>
+      <td><%= purchase.show_vendor.name %></td>
+      <td><%= purchase.amount %></td>
+      <td><%= purchase.description %></td>
+      <td><%= purchase.transaction_date %></td>
+      <td><%= purchase.payment_date %></td>
     </tr>
   <% end %>
 </table>

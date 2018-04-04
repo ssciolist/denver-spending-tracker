@@ -5,6 +5,7 @@ class User < ApplicationRecord
   validates_uniqueness_of :username
 
   has_many :flags
+  has_many :purchases, through: :flags
 
   enum role: %w(user admin)
 end

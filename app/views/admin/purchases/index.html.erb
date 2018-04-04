@@ -9,8 +9,8 @@
   <th>Payment Date</th>
   <% @purchases.each do |purchase| %>
       <tr>
-        <td><%= purchase.programs.first.name %></td>
-        <td><%= purchase.vendors.first.name %></td>
+        <td><%= purchase.show_program.name %></td>
+        <td><%= purchase.show_vendor.name %></td>
         <td><%= purchase.amount %></td>
         <td><%= purchase.description %></td>
         <td><%= purchase.transaction_date %></td>

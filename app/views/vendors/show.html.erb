@@ -1,14 +1,13 @@
 <h1><%= @vendor.name %>, operating in <%= @vendor.state %></h1>
 
 <table>
+  <tr>
   <th>Program</th>
-  <th>Amount</th>
-  <th>Description</th>
-  <th>Transaction Date</th>
-  <th>Payment Date</th>
+    <%= render partial: 'layouts/table_headers' %>
+  </tr>
   <% @vendor.purchases.each do |purchase| %>
     <tr>
-      <td><%= purchase.programs.first.name %></td>
+      <td><%= purchase.show_program.name %></td>
       <td><%= purchase.amount %></td>
       <td><%= purchase.description %></td>
       <td><%= purchase.transaction_date %></td>
