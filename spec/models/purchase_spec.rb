@@ -43,4 +43,30 @@ describe Purchase, type: :model do
     it { should have_many(:vendors) }
     it { should have_many(:programs) }
   end
+
+  describe 'Methods' do
+    it '.show_vendor' do
+      vendor = Vendor.new(name: 'Benny Blancos', state: 'CO')
+      program = Program.new(name: 'Denver Fire Department')
+      purchase = Purchase.new(transaction_date: '4/16/2017',
+                              payment_date: '4/18/2018',
+                              description: 'Calzones',
+                              amount: 50.1)
+      ProgramVendorPurchase.create!(program: program, vendor: vendor, purchase: purchase)
+
+      expect(purchase.show_vendor).to eq(vendor)
+    end
+
+    it '.show_program' do
+      vendor = Vendor.new(name: 'Benny Blancos', state: 'CO')
+      program = Program.new(name: 'Denver Fire Department')
+      purchase = Purchase.new(transaction_date: '4/16/2017',
+                              payment_date: '4/18/2018',
+                              description: 'Calzones',
+                              amount: 50.1)
+      ProgramVendorPurchase.create!(program: program, vendor: vendor, purchase: purchase)
+
+      expect(purchase.show_program).to eq(program)
+    end
+  end
 end
