@@ -1,12 +1,11 @@
 <table>
+  <tr>
   <th>Vendor</th>
-  <th>Amount</th>
-  <th>Description</th>
-  <th>Transaction Date</th>
-  <th>Payment Date</th>
+  <%= render partial: 'layouts/table_headers' %>
+  </tr>
   <% @program.purchases.each do |purchase| %>
   <tr>
-    <td><%= purchase.vendors.first.name %></td>
+    <td><%= purchase.show_vendor.name %></td>
     <td><%= purchase.amount %></td>
     <td><%= purchase.description %></td>
     <td><%= purchase.transaction_date %></td>

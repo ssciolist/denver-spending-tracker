@@ -1,14 +1,13 @@
 <table>
-  <th>Flag</th>
-  <th>Vendor</th>
-  <th>Amount</th>
-  <th>Description</th>
-  <th>Transaction Date</th>
-  <th>Payment Date</th>
+  <tr>
+    <th>Flag</th>
+    <th>Vendor</th>
+    <%= render partial: 'layouts/table_headers' %>
+  </tr>
   <% @program.purchases.each do |purchase| %>
   <tr>
     <td id="program_purchase_<%= purchase.id %>"><%= link_to 'Flag', purchase_flags_path(purchase), method: "post" %></td>
-    <td><%= purchase.vendors.first.name %></td>
+    <td><%= purchase.show_vendor.name %></td>
     <td><%= purchase.amount %></td>
     <td><%= purchase.description %></td>
     <td><%= purchase.transaction_date %></td>
