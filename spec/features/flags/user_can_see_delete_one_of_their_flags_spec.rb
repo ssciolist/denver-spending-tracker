@@ -29,7 +29,7 @@ describe 'Logged in user can go to their own page' do
     within "td#program_purchase_#{purchase3.id}" do
       click_on 'Delete'
     end
-
+save_and_open_page
     expect(page).to have_content(purchase2.programs.first.name)
     expect(page).to have_content(purchase2.vendors.first.name)
     expect(page).to have_content(purchase2.description)
