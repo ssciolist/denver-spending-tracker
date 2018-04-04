@@ -1,9 +1,11 @@
 <table>
-  <th>Vendor</th>
-  <th>Amount</th>
-  <th>Description</th>
-  <th>Transaction Date</th>
-  <th>Payment Date</th>
+  <tr>
+    <th>Vendor</th>
+    <th>Amount</th>
+    <th>Description</th>
+    <th>Transaction Date</th>
+    <th>Payment Date</th>
+  </tr>
   <% @program.purchases.each do |purchase| %>
   <tr>
     <td><%= purchase.vendors.first.name %></td>
