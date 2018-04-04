@@ -7,6 +7,11 @@
   from <%= @program.most_expensive_purchase.show_vendor.name %>
 </div>
 
+<div class="">
+  <b>Most common vendor:</b>
+  <%= @program.most_common_vendor.name %>
+</div>
+
 <% if current_user.nil? %>
   <%= render partial: 'programs/visitor_show' %>
 <% else %>
