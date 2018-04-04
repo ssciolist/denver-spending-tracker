@@ -4,8 +4,8 @@ class Purchase < ActiveRecord::Base
             :description,
             :amount,
             presence: true
-  validates_associated :program_vendor_purchases
   
+
   has_many :program_vendor_purchases
   has_many :vendors, through: :program_vendor_purchases
   has_many :programs, through: :program_vendor_purchases

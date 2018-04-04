@@ -14,8 +14,8 @@ save_and_open_page
       fill_in 'purchase[payment_date]', with: '12/15/2016'
       fill_in 'purchase[amount]', with: '50'
       fill_in 'purchase[description]', with: 'A cool toy'
-      select 'Denver Police Department', from: 'purchase[program_vendor_purchases_attributes][0][program_id]'
-      select 'Nintendo', from: 'purchase[program_vendor_purchases_attributes][0][vendor_id]'
+      select 'Denver Police Department', from: 'purchase[program_vendor_purchases_attributes][0][program]'
+      select 'Nintendo', from: 'purchase[program_vendor_purchases_attributes][0][vendor]'
 
       click_button 'Create Purchase'
 
