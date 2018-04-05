@@ -5,7 +5,7 @@
   </tr>
   <% @program.purchases.each do |purchase| %>
   <tr>
-    <td><%= purchase.show_vendor.name %></td>
+    <td><%= link_to purchase.show_vendor.name, vendor_path(purchase.show_vendor.id) %></td>
     <td><%= purchase.amount %></td>
     <td><%= purchase.description %></td>
     <td><%= purchase.transaction_date %></td>

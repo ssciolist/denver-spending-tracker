@@ -13,3 +13,55 @@
  *= require_tree .
  *= require_self
  */
+.header-text {
+  font-family: "Open Sans";
+  font-weight: bold;
+  color: white;
+}
+
+header {
+  display: flex;
+  background-color: #2B2B2B;
+  justify-content: flex-end;
+}
+
+h1 {
+  text-align: center;
+}
+
+body {
+  font-family: "Open Sans"
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+th {
+  text-align: left;
+  font-size: 25px;
+  font-weight: bold;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+td {
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+}
+
+tr {
+  border-width: 15px;
+  border-style: solid;
+  padding: 100px, 100px, 100px, 100px;
+}
+
+table {
+  border-width: 10px;
+  border-style: solid;
+}
