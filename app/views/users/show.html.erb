@@ -11,7 +11,6 @@
   </tr>
   <% current_user.purchases.each do |purchase| %>
     <tr>
-      <td id="program_purchase_<%= purchase.id %>"><%= link_to 'Delete', purchase_flag_path(purchase), method: "delete" %></td>
       <td><%= purchase.show_program.name %></td>
       <td><%= purchase.show_vendor.name %></td>
       <td><%= purchase.amount %></td>

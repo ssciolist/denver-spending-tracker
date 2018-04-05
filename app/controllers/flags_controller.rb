@@ -5,6 +5,7 @@ class FlagsController < ApplicationController
   end
 
   def destroy
+    require 'pry'; binding.pry
     flag = Flag.find(params[:id])
     flag.destroy
     redirect_to user_path(current_user)
